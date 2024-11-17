@@ -1,87 +1,91 @@
-echo -e "\nln -sf /usr/share/zoneinfo/Asia/Bishkek /etc/localtime\n"
+echo -e "\nEXECUTION: ln -sf /usr/share/zoneinfo/Asia/Bishkek /etc/localtime\n"
 sleep 0.5
 ln -sf /usr/share/zoneinfo/Asia/Bishkek /etc/localtime
 
-echo -e "\nhwclock --systohc\n"
+echo -e "\nEXECUTION: hwclock --systohc\n"
 sleep 0.5
 hwclock --systohc
 
-echo -e "\necho \"en_US.UTF-8 UTF-8\" > /etc/locale.gen\n"
+echo -e "\nEXECUTION: echo \"en_US.UTF-8 UTF-8\" > /etc/locale.gen\n"
 sleep 0.5
 echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
 
-echo -e "\necho \"LANG=en_US.UTF-8\" > /etc/locale.conf\n"
+echo -e "\nEXECUTION: echo \"LANG=en_US.UTF-8\" > /etc/locale.conf\n"
 sleep 0.5
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 
-echo -e "\nlocale-gen\n"
+echo -e "\nEXECUTION: locale-gen\n"
 sleep 0.5
 locale-gen
 
-echo -e "\ngrub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB\n"
+echo -e "\nEXECUTION: grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB\n"
 sleep 0.5
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 
-echo -e "\ngrub-mkconfig -o /boot/grub/grub.cfg\n"
+echo -e "\nEXECUTION: grub-mkconfig -o /boot/grub/grub.cfg\n"
 sleep 0.5
 grub-mkconfig -o /boot/grub/grub.cfg
 
-echo -e "\necho \"desktop\" > /etc/hostname\n"
+echo -e "\nEXECUTION: echo \"desktop\" > /etc/hostname\n"
 sleep 0.5
 echo "desktop" > /etc/hostname
 
-echo -e "\necho \"root:2486\" | chpasswd\n"
+echo -e "\nEXECUTION: echo \"root:2486\" | chpasswd\n"
 sleep 0.5
 echo "root:2486" | chpasswd
 
-echo -e "\nuseradd -m -G wheel -s /bin/bash tozzemon\n"
+echo -e "\nEXECUTION: useradd -m -G wheel -s /bin/bash tozzemon\n"
 sleep 0.5
 useradd -m -G wheel -s /bin/bash tozzemon
 
-echo -e "\necho \"tozzemon:2486\" | chpasswd\n"
+echo -e "\nEXECUTION: echo \"tozzemon:2486\" | chpasswd\n"
 sleep 0.5
 echo "tozzemon:2486" | chpasswd
 
-echo -e "\nsed -i \"/^# %wheel ALL=(ALL) ALL/s/^# //\" /etc/sudoers\n"
+echo -e "\nEXECUTION: sed -i \"/^# %wheel ALL=(ALL) ALL/s/^# //\" /etc/sudoers\n"
 sleep 0.5
 sed -i "/^# %wheel ALL=(ALL) ALL/s/^# //" /etc/sudoers
 
-echo -e "\ncd /opt && git clone https://aur.archlinux.org/yay.git && chown -R \$(whoami):\$(whoami) yay && cd yay && makepkg -si\n"
+echo -e "\nEXECUTION: cd /opt && git clone https://aur.archlinux.org/yay.git && chown -R \$(whoami):\$(whoami) yay && cd yay && makepkg -si\n"
 sleep 0.5
 cd /opt && git clone https://aur.archlinux.org/yay.git && chown -R $(whoami):$(whoami) yay && cd yay && makepkg -si
 
-echo -e "\nmdkir -p ~/.config && cp -r ./dots/* /home/tozzemon/.config\n"
+echo -e "\nEXECUTION: mkdir -p ~/.config && cp -r ./dots/* /home/tozzemon/.config\n"
 sleep 0.5
 mkdir -p ~/.config && cp -r ./dots/* /home/tozzemon/.config
 
-echo -e "\npacman -S --noconfirm nvidia-open nvidia-settings\n"
+echo -e "\nEXECUTION: pacman -S --noconfirm nvidia-open nvidia-settings\n"
 sleep 0.5
 pacman -S --noconfirm nvidia-open nvidia-settings
 
-echo -e "\nsed -i 's/\\<kms\\>//g; s/  / /g; s/ ( /(/; s/ ) /)/' /etc/mkinitcpio.conf\n"
+echo -e "\nEXECUTION: sed -i 's/\\<kms\\>//g; s/  / /g; s/ ( /(/; s/ ) /)/' /etc/mkinitcpio.conf\n"
 sleep 0.5
 sed -i 's/\<kms\>//g; s/  / /g; s/ ( /(/; s/ ) /)/' /etc/mkinitcpio.conf
 
-echo -e "\nmkdir -p /etc/X11 && cp ./configs/xorg.conf /etc/X11/\n"
+echo -e "\nEXECUTION: mkdir -p /etc/X11 && cp ./configs/xorg.conf /etc/X11/\n"
 sleep 0.5
 mkdir -p /etc/X11 && cp ./configs/xorg.conf /etc/X11/
 
-echo -e "\nyay -S xbanish librewolf-bin intellij-idea-community-edition-jre\n"
+echo -e "\nEXECUTION: su tozzemon\n"
+sleep 0.5
+su tozzemon
+
+echo -e "\nEXECUTION: yay -S xbanish librewolf-bin intellij-idea-community-edition-jre\n"
 sleep 0.5
 yay -S xbanish librewolf-bin intellij-idea-community-edition-jre
 
-echo -e "\ndinitctl enable connmand\n"
+echo -e "\nEXECUTION: dinitctl enable connmand\n"
 sleep 0.5
 dinitctl enable connmand
 
-echo -e "\ndinitctl enable ly\n"
+echo -e "\nEXECUTION: dinitctl enable ly\n"
 sleep 0.5
 dinitctl enable ly
 
-echo -e "\nrm /root/.bashrc\n"
+echo -e "\nEXECUTION: rm /root/.bashrc\n"
 sleep 0.5
 rm /root/.bashrc
 
-echo -e "\nreboot\n"
+echo -e "\nEXECUTION: exit\n"
 sleep 0.5
-reboot
+exit
