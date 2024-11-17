@@ -56,7 +56,7 @@ fstabgen -U /mnt >> /mnt/etc/fstab
 
 echo -e "\nEXECUTION: cat ./install2.sh > /mnt/root/.bashrc\n"
 sleep 0.5
-cat ./install2 > /mnt/root/.bashrc
+cat ./install2.sh > /mnt/root/.bashrc
 
 cp -r ./dots /mnt/root && cp -r ./configs /mnt/root
 
