@@ -10,7 +10,7 @@ mkfs.vfat /dev/sda1
 mount --mkdir /dev/sda2 /mnt/boot
 dinitctl start ntpd
 pacman -Sy --noconfirm
-basestrap /mnt linux linux-firmware base base-devel dinit elogind-dinit os-prober efibootmgr connman-dinit xorg xorg-xinit ly-dinit git alacritty arp-scan bash-completion beep breeze-gtk breeze5 bspwm btrfs-progs dunst grub gvim lxappearance man neofetch neovim ntfs-3g openssh qt5ct rofi sxhkd unclutter viewnior vifm wget xorg xorg-xinit 
+basestrap /mnt linux linux-firmware base base-devel dinit elogind-dinit os-prober efibootmgr connman-dinit xorg xorg-xinit ly-dinit git alacritty bash-completion beep breeze-gtk breeze5 bspwm btrfs-progs dunst grub gvim lxappearance neofetch neovim ntfs-3g openssh qt5ct rofi sxhkd unclutter viewnior vifm wget xorg xorg-xinit 
 fstabgen -U /mnt >> /mnt/etc/fstab
 cat ./install2 > /mnt/root/.bashrc
 artix-chroot /mnt
