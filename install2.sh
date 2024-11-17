@@ -52,7 +52,7 @@ sed -i "/^# %wheel ALL=(ALL) ALL/s/^# //" /etc/sudoers
 
 echo -e "\nEXECUTION: mkdir -p ~/.config && cp -r ./dots/* /home/tozzemon/.config\n"
 sleep 0.5
-mkdir -p ~/.config && cp -r ./dots/* /home/tozzemon/.config
+mkdir -p ~/.config && cp -r /root/dots/* /home/tozzemon/.config
 
 echo -e "\nEXECUTION: pacman -S --noconfirm nvidia-open nvidia-settings\n"
 sleep 0.5
@@ -64,7 +64,7 @@ sed -i 's/\<kms\>//g; s/  / /g; s/ ( /(/; s/ ) /)/' /etc/mkinitcpio.conf
 
 echo -e "\nEXECUTION: mkdir -p /etc/X11 && cp ./configs/xorg.conf /etc/X11/\n"
 sleep 0.5
-mkdir -p /etc/X11 && cp ./configs/xorg.conf /etc/X11/
+mkdir -p /etc/X11 && cp /root/configs/xorg.conf /etc/X11/
 
 # echo -e "\nEXECUTION: yay -S xbanish librewolf-bin intellij-idea-community-edition-jre\n"
 # sleep 0.5
@@ -78,9 +78,9 @@ echo -e "\nEXECUTION: dinitctl enable ly\n"
 sleep 0.5
 dinitctl enable ly
 
-echo -e "\nEXECUTION: rm /root/.bashrc\n"
+echo -e "\nEXECUTION: rm /root/.bashrc && rm -rf /root/configs && rm -rf /root/dots\n"
 sleep 0.5
-rm /root/.bashrc
+rm /root/.bashrc && rm -rf /root/configs && rm -rf /root/dots
 
 echo -e "\nEXECUTION: exit\n"
 sleep 0.5
