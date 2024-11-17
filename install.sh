@@ -54,9 +54,11 @@ echo -e "\nEXECUTION: fstabgen -U /mnt >> /mnt/etc/fstab\n"
 sleep 0.5
 fstabgen -U /mnt >> /mnt/etc/fstab
 
-echo -e "\nEXECUTION: cat ./install2 > /mnt/root/.bashrc\n"
+echo -e "\nEXECUTION: cat ./install2.sh > /mnt/root/.bashrc\n"
 sleep 0.5
 cat ./install2 > /mnt/root/.bashrc
+
+cp -r ./dots /mnt/root && cp -r ./configs /mnt/root
 
 echo -e "\nEXECUTION: artix-chroot /mnt\n"
 sleep 0.5

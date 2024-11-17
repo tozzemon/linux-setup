@@ -46,9 +46,9 @@ echo -e "\nEXECUTION: sed -i \"/^# %wheel ALL=(ALL) ALL/s/^# //\" /etc/sudoers\n
 sleep 0.5
 sed -i "/^# %wheel ALL=(ALL) ALL/s/^# //" /etc/sudoers
 
-echo -e "\nEXECUTION: cd /opt && git clone https://aur.archlinux.org/yay.git && chown -R \$(whoami):\$(whoami) yay && cd yay && makepkg -si\n"
-sleep 0.5
-cd /opt && git clone https://aur.archlinux.org/yay.git && chown -R $(whoami):$(whoami) yay && cd yay && makepkg -si
+# echo -e "\nEXECUTION: cd /opt && git clone https://aur.archlinux.org/yay.git && chown -R \$(whoami):\$(whoami) yay && cd yay && makepkg -si\n"
+# sleep 0.5
+# cd /opt && git clone https://aur.archlinux.org/yay.git && chown -R $(whoami):$(whoami) yay && cd yay && makepkg -si
 
 echo -e "\nEXECUTION: mkdir -p ~/.config && cp -r ./dots/* /home/tozzemon/.config\n"
 sleep 0.5
@@ -66,13 +66,9 @@ echo -e "\nEXECUTION: mkdir -p /etc/X11 && cp ./configs/xorg.conf /etc/X11/\n"
 sleep 0.5
 mkdir -p /etc/X11 && cp ./configs/xorg.conf /etc/X11/
 
-echo -e "\nEXECUTION: su tozzemon\n"
-sleep 0.5
-su tozzemon
-
-echo -e "\nEXECUTION: yay -S xbanish librewolf-bin intellij-idea-community-edition-jre\n"
-sleep 0.5
-yay -S xbanish librewolf-bin intellij-idea-community-edition-jre
+# echo -e "\nEXECUTION: yay -S xbanish librewolf-bin intellij-idea-community-edition-jre\n"
+# sleep 0.5
+# yay -S xbanish librewolf-bin intellij-idea-community-edition-jre
 
 echo -e "\nEXECUTION: dinitctl enable connmand\n"
 sleep 0.5
