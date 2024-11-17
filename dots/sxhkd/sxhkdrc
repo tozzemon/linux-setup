@@ -1,0 +1,29 @@
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east} --follow
+
+super + alt + h
+	bspc node -m ^1 --follow
+
+super + alt + l
+	bspc node -m ^2 --follow
+
+super + g
+	bspc node -s biggest.window
+
+super + q
+	bspc node -{c,k}
+
+~button{1,2,3}
+	bspc window -f any
+
+super + grave
+	rofi -show run
+
+super + Tab
+	alacritty
+
+super + e
+	alacritty -e vifm ~ ~
+
+super + b
+	firefox-nightly

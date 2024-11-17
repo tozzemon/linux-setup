@@ -1,0 +1,8 @@
+[font]
+
+normal = { family = "Ubuntu Mono", style = "Regular" }
+size = 13
+
+[window]
+
+padding = { x = 10, y = 10 }

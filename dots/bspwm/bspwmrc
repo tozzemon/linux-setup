@@ -1,0 +1,12 @@
+#! /bin/bash
+
+bspc config focus_follows_pointer true
+xsetroot -cursor_name left_ptr
+xset s off
+xset -dpms
+xset s noblank
+sxhkd &
+unclutter -idle 3 -jitter 50 &
+xbanish &
+dunst &
+alacritty &
