@@ -34,9 +34,9 @@ echo -e "\nEXECUTION: mkfs.vfat -q /dev/sda1\n"
 sleep 0.5
 mkfs.vfat -q /dev/sda1
 
-echo -e "\nEXECUTION: mount --mkdir /dev/sda2 /mnt/boot\n"
+echo -e "\nEXECUTION: mount --mkdir /dev/sda1 /mnt/boot\n"
 sleep 0.5
-mount --mkdir /dev/sda2 /mnt/boot
+mount --mkdir /dev/sda1 /mnt/boot
 
 echo -e "\nEXECUTION: dinitctl start ntpd\n"
 sleep 0.5
