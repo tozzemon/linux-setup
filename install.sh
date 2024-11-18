@@ -64,20 +64,15 @@ cat ./install2.sh > /mnt/root/.bashrc
 echo -e "\nEXECUTION: cp -r ./dots /mnt/root && cp -r ./configs /mnt/root\n"
 cp -r ./dots /mnt/root && cp -r ./configs /mnt/root
 
-# # Add install3.sh to .bashrc of the Live-CD environment
-# 
-# echo -e "\ncp ./install3.sh >> /root/.bashrc\n"
-# cp ./install3.sh >> /root/.bashrc
-
 # Write install3.sh to /home/tozzemon/.bashrc in the installed system
 
-echo -e "\nEXECUTION: cat ./install3.sh > /mnt/home/tozzemon/.bashrc\n"
-cat ./install3.sh > /mnt/home/tozzemon/.bashrc
+echo -e "\nEXECUTION: mkdir -p /mnt/home/tozzemon && cat ./install3.sh > /mnt/home/tozzemon/.bashrc\n"
+mkdir -p /mnt/home/tozzemon && cat ./install3.sh > /mnt/home/tozzemon/.bashrc
 
-# Temporary rename user's .bashrc in the installed system
-
-echo -e "\nmv /mnt/home/tozzemon/.bashrc /mnt/home/tozzemon/.bashrcBACKUP\n"
-mv /mnt/home/tozzemon/.bashrc /mnt/home/tozzemon/.bashrcBACKUP
+# # Temporary rename user's .bashrc in the installed system
+# 
+# echo -e "\nmv /mnt/home/tozzemon/.bashrc /mnt/home/tozzemon/.bashrcBACKUP\n"
+# mv /mnt/home/tozzemon/.bashrc /mnt/home/tozzemon/.bashrcBACKUP
 
 # TEST
 
