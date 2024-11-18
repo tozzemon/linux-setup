@@ -50,6 +50,10 @@ sed -i "/^# %wheel ALL=(ALL) ALL/s/^# //" /etc/sudoers
 # read
 # cd /opt && git clone https://aur.archlinux.org/yay.git && chown -R $(whoami):$(whoami) yay && cd yay && makepkg -si
 
+echo -e "\nEXECUTION: cd /root\n"
+read
+cd /root
+
 echo -e "\nEXECUTION: mkdir -p ~/.config && cp -r ./dots/* /home/tozzemon/.config\n"
 read
 mkdir -p ~/.config && cp -r /root/dots/* /home/tozzemon/.config
