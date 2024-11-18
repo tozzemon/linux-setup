@@ -79,6 +79,11 @@ cat ./install3.sh > /mnt/home/tozzemon/.bashrc
 echo -e "\nmv /mnt/home/tozzemon/.bashrc /mnt/home/tozzemon/.bashrcBACKUP\n"
 mv /mnt/home/tozzemon/.bashrc /mnt/home/tozzemon/.bashrcBACKUP
 
+# TEST
+
+echo -e "\nSTOP"
+read
+
 # chroot
 
 echo -e "\nEXECUTION: artix-chroot /mnt\n"
