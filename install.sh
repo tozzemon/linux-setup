@@ -36,7 +36,7 @@ mkfs.ext4 -Fq /dev/sda2
 
 echo -e "\nEXECUTION: mkfs.vfat /dev/sda1\n"
 read
-mkfs.vfat -fq /dev/sda1
+mkfs.vfat /dev/sda1
 
 # Mount /boot
 
