@@ -56,7 +56,7 @@ cd /root
 
 echo -e "\nEXECUTION: mkdir -p ~/.config && cp -r ./dots/* /home/tozzemon/.config\n"
 read
-mkdir -p ~/.config && cp -r /root/dots/* /home/tozzemon/.config
+mkdir -p /home/tozzemon/.config && cp -r /root/dots/* /home/tozzemon/.config
 
 echo -e "\nEXECUTION: pacman -S --noconfirm nvidia-open nvidia-settings\n"
 read
