@@ -30,13 +30,13 @@ mount -o subvol=@ /dev/sda3 /mnt
 
 # Format sda1, sda2
 
-echo -e "\nEXECUTION: mkfs.ext4 -q /dev/sda2\n"
+echo -e "\nEXECUTION: mkfs.ext4 -fq /dev/sda2\n"
 sleep 0.5
-mkfs.ext4 -q /dev/sda2
+mkfs.ext4 -fq /dev/sda2
 
-echo -e "\nEXECUTION: mkfs.vfat -q /dev/sda1\n"
+echo -e "\nEXECUTION: mkfs.vfat -fq /dev/sda1\n"
 sleep 0.5
-mkfs.vfat -q /dev/sda1
+mkfs.vfat -fq /dev/sda1
 
 # Mount /boot
 
