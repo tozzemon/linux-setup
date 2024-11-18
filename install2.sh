@@ -44,10 +44,6 @@ echo "tozzemon:2486" | chpasswd
 echo -e "\necho '%wheel ALL=(ALL:ALL) ALL' >> /etc/sudoers\n"
 echo "%wheel ALL=(ALL:ALL) ALL" >> /etc/sudoers
 
-# echo -e "\nEXECUTION: cd /opt && git clone https://aur.archlinux.org/yay.git && chown -R \$(whoami):\$(whoami) yay && cd yay && makepkg -si\n"
-# 
-# cd /opt && git clone https://aur.archlinux.org/yay.git && chown -R $(whoami):$(whoami) yay && cd yay && makepkg -si
-
 # Copy dots and configs to /home/tozzemon
 
 echo -e "\nEXECUTION: cd /root\n"
@@ -67,16 +63,22 @@ sed -i 's/\<kms\>//g; s/  / /g; s/ ( /(/; s/ ) /)/' /etc/mkinitcpio.conf
 echo -e "\nEXECUTION: mkdir -p /etc/X11 && cp ./configs/xorg.conf /etc/X11/\n"
 mkdir -p /etc/X11 && cp /root/configs/xorg.conf /etc/X11/
 
-# echo -e "\nEXECUTION: yay -S xbanish librewolf-bin intellij-idea-community-edition-jre\n"
-# 
-# yay -S xbanish librewolf-bin intellij-idea-community-edition-jre
-
-# Writing install3.sh to .bashrc in the installed system
-
-echo -e "\nEXECUTION: cat ./install3.sh > /home/tozzemon/.bashrc\n"
-cat ./install3.sh > /home/tozzemon/.bashrc
+# Remove .bashrc, configs, and dots from /root in the installed system
 
 echo -e "\nEXECUTION: rm /root/.bashrc && rm -rf /root/configs && rm -rf /root/dots\n"
 rm /root/.bashrc && rm -rf /root/configs && rm -rf /root/dots
 
+# Temporary rename user's .bashrc in the installed system
 
+echo -e "\nmv /home/tozzemon/.bashrc /home/tozzemon/.bashrcBACKUP\n"
+mv /home/tozzemon/.bashrc /home/tozzemon/.bashrcBACKUP
+
+# Write install4.sh to /home/tozzemon/.bashrc in the installed system
+
+echo -e "\nEXECUTION: cat ./install4.sh > /home/tozzemon/.bashrc\n"
+cat ./install4.sh > /home/tozzemon/.bashrc
+
+# Exit installed system
+
+echo -e "\nEXECUTION: exit\n"
+exit
