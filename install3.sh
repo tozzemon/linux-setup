@@ -27,6 +27,6 @@ echo -e "\nEXECUTION: sudo rm /home/tozzemon/.bash_profile\n"
 sudo rm /home/tozzemon/.bash_profile
 
 # Reboot 
-
-echoo -e "\nINSTALLATION COMPLETED. REBOOT...\n"
+echo -e "\nWaiting...\n" && read
+echo -e "\nINSTALLATION COMPLETED. REBOOT...\n"
 sleep 2 && sudo reboot
