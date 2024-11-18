@@ -1,7 +1,7 @@
 #! /bin/bash
 # Live-CD
 
-echo &&  -n 1 -p "One key away from the miracle... " && echo
+echo && read -n 1 -p "One key away from the miracle... " && echo
 
 # Set BTRFS
 
