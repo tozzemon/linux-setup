@@ -1,6 +1,6 @@
 #! /bin/bash
 
-read -n 1 -p "\nOne key away from the miracle... " && echo
+echo && read -n 1 -p "One key away from the miracle... " && echo
 
 # Set BTRFS
 
