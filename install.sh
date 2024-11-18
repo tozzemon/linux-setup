@@ -64,13 +64,12 @@ cat ./install2.sh > /mnt/root/.bashrc
 echo -e "\nEXECUTION: cp -r ./dots /mnt/root && cp -r ./configs /mnt/root\n"
 cp -r ./dots /mnt/root && cp -r ./configs /mnt/root
 
-# Add install3.sh to .bashrc of the Live-CD environment
-
-echo -e "\ncp ./install3.sh >> /root/.bashrc\n"
-cp ./install3.sh >> /root/.bashrc
+# # Add install3.sh to .bashrc of the Live-CD environment
+# 
+# echo -e "\ncp ./install3.sh >> /root/.bashrc\n"
+# cp ./install3.sh >> /root/.bashrc
 
 # chroot
 
 echo -e "\nEXECUTION: artix-chroot /mnt\n"
 artix-chroot /mnt
-

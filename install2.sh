@@ -2,6 +2,7 @@
 # Installed system
 
 # Set timezone
+
 echo -e "\nEXECUTION: ln -sf /usr/share/zoneinfo/Asia/Bishkek /etc/localtime\n"
 ln -sf /usr/share/zoneinfo/Asia/Bishkek /etc/localtime
 
@@ -73,10 +74,10 @@ rm /root/.bashrc && rm -rf /root/configs && rm -rf /root/dots
 echo -e "\nmv /home/tozzemon/.bashrc /home/tozzemon/.bashrcBACKUP\n"
 mv /home/tozzemon/.bashrc /home/tozzemon/.bashrcBACKUP
 
-# Write install4.sh to /home/tozzemon/.bashrc in the installed system
+# Write install3.sh to /home/tozzemon/.bashrc in the installed system
 
-echo -e "\nEXECUTION: cat ./install4.sh > /home/tozzemon/.bashrc\n"
-cat ./install4.sh > /home/tozzemon/.bashrc
+echo -e "\nEXECUTION: cat ./install3.sh > /home/tozzemon/.bashrc\n"
+cat ./install3.sh > /home/tozzemon/.bashrc
 
 # Exit installed system
 
