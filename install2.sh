@@ -46,7 +46,7 @@ echo "tozzemon:2486" | chpasswd
 # read
 # sed -i "/^# %wheel ALL=(ALL:ALL) ALL/s/^# //" /etc/sudoers
 
-echo -e "\necho "%wheel ALL=(ALL:ALL) ALL" >> /etc/sudoers\n"
+echo -e "\necho '%wheel ALL=(ALL:ALL) ALL' >> /etc/sudoers\n"
 read
 echo "%wheel ALL=(ALL:ALL) ALL" >> /etc/sudoers
 
