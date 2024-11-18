@@ -30,11 +30,11 @@ mount -o subvol=@ /dev/sda3 /mnt
 
 # Format sda1, sda2
 
-echo -e "\nEXECUTION: mkfs.ext4 -fq /dev/sda2\n"
+echo -e "\nEXECUTION: mkfs.ext4 -Fq /dev/sda2\n"
 read
-mkfs.ext4 -fq /dev/sda2
+mkfs.ext4 -Fq /dev/sda2
 
-echo -e "\nEXECUTION: mkfs.vfat -fq /dev/sda1\n"
+echo -e "\nEXECUTION: mkfs.vfat /dev/sda1\n"
 read
 mkfs.vfat -fq /dev/sda1
 
