@@ -4,9 +4,9 @@ echo && read -n 1 -p "One key away from the miracle... " && echo
 
 # Set BTRFS
 
-echo -e "\nEXECUTION: mkfs.btrfs -fq /dev/sda3\n"
+echo -e "\nEXECUTION: mkfs.btrfs -Fq /dev/sda3\n"
 read
-mkfs.btrfs -fq /dev/sda3
+mkfs.btrfs -Fq /dev/sda3
 
 echo -e "\nEXECUTION: mount /dev/sda3 /mnt\n"
 read
@@ -30,13 +30,13 @@ mount -o subvol=@ /dev/sda3 /mnt
 
 # Format sda1, sda2
 
-echo -e "\nEXECUTION: mkfs.ext4 -fq /dev/sda2\n"
+echo -e "\nEXECUTION: mkfs.ext4 -Fq /dev/sda2\n"
 read
-mkfs.ext4 -fq /dev/sda2
+mkfs.ext4 -Fq /dev/sda2
 
-echo -e "\nEXECUTION: mkfs.vfat -fq /dev/sda1\n"
+echo -e "\nEXECUTION: mkfs.vfat -Fq /dev/sda1\n"
 read
-mkfs.vfat -fq /dev/sda1
+mkfs.vfat -Fq /dev/sda1
 
 # Mount /boot
 
