@@ -69,6 +69,11 @@ cp -r ./dots /mnt/root && cp -r ./configs /mnt/root
 # echo -e "\ncp ./install3.sh >> /root/.bashrc\n"
 # cp ./install3.sh >> /root/.bashrc
 
+# Write install3.sh to /home/tozzemon/.bashrc in the installed system
+
+echo -e "\nEXECUTION: cat ./install3.sh > /mnt/home/tozzemon/.bashrc\n"
+cat ./install3.sh > /mnt/home/tozzemon/.bashrc
+
 # chroot
 
 echo -e "\nEXECUTION: artix-chroot /mnt\n"
