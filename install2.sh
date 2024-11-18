@@ -42,9 +42,13 @@ echo -e "\nEXECUTION: echo \"tozzemon:2486\" | chpasswd\n"
 read
 echo "tozzemon:2486" | chpasswd
 
-echo -e "\nEXECUTION: sed -i \"/^# %wheel ALL=(ALL) ALL/s/^# //\" /etc/sudoers\n"
+# echo -e "\nEXECUTION: sed -i \"/^# %wheel ALL=(ALL:ALL) ALL/s/^# //\" /etc/sudoers\n"
+# read
+# sed -i "/^# %wheel ALL=(ALL:ALL) ALL/s/^# //" /etc/sudoers
+
+echo -e "\necho "%wheel ALL=(ALL:ALL) ALL" >> /etc/sudoers\n"
 read
-sed -i "/^# %wheel ALL=(ALL) ALL/s/^# //" /etc/sudoers
+echo "%wheel ALL=(ALL:ALL) ALL" >> /etc/sudoers
 
 # echo -e "\nEXECUTION: cd /opt && git clone https://aur.archlinux.org/yay.git && chown -R \$(whoami):\$(whoami) yay && cd yay && makepkg -si\n"
 # read
