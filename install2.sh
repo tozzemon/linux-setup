@@ -66,6 +66,9 @@ echo -e "\nEXECUTION: pacman -S --noconfirm nvidia-open nvidia-settings\n"
 read
 pacman -S --noconfirm nvidia-open nvidia-settings
 
+# Delete it later
+echo "\nSTOPPP\n" && read
+
 echo -e "\nEXECUTION: sed -i 's/\\<kms\\>//g; s/  / /g; s/ ( /(/; s/ ) /)/' /etc/mkinitcpio.conf\n"
 read
 sed -i 's/\<kms\>//g; s/  / /g; s/ ( /(/; s/ ) /)/' /etc/mkinitcpio.conf
