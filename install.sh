@@ -69,12 +69,12 @@ cp -r ./dots /mnt/root && cp -r ./configs /mnt/root
 echo -e "\nEXECUTION: mkdir -p /mnt/home/tozzemon && cat ./install3.sh > /mnt/home/tozzemon/.bash_profile\n"
 mkdir -p /mnt/home/tozzemon && cat ./install3.sh > /mnt/home/tozzemon/.bash_profile
 
-# # Temporary rename user's .bashrc in the installed system
-# 
-# echo -e "\nmv /mnt/home/tozzemon/.bashrc /mnt/home/tozzemon/.bashrcBACKUP\n"
-# mv /mnt/home/tozzemon/.bashrc /mnt/home/tozzemon/.bashrcBACKUP
-
 # chroot
 
 echo -e "\nEXECUTION: artix-chroot /mnt\n"
 artix-chroot /mnt
+
+# Reboot
+
+echo -e "\nEXECUTION: reboot\n"
+reboot
