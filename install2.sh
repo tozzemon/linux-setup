@@ -69,10 +69,6 @@ mkdir -p /etc/X11 && cp /root/configs/xorg.conf /etc/X11/
 echo -e "\nEXECUTION: rm /root/.bashrc && rm -rf /root/configs && rm -rf /root/dots\n"
 rm /root/.bashrc && rm -rf /root/configs && rm -rf /root/dots
 
-# Temporary rename user's .bashrc in the installed system
-
-echo -e "\nmv /home/tozzemon/.bashrc /home/tozzemon/.bashrcBACKUP\n"
-mv /home/tozzemon/.bashrc /home/tozzemon/.bashrcBACKUP
 
 # Exit installed system
 

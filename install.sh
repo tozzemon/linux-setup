@@ -74,6 +74,12 @@ cp -r ./dots /mnt/root && cp -r ./configs /mnt/root
 echo -e "\nEXECUTION: cat ./install3.sh > /mnt/home/tozzemon/.bashrc\n"
 cat ./install3.sh > /mnt/home/tozzemon/.bashrc
 
+# Temporary rename user's .bashrc in the installed system
+
+echo -e "\nmv /home/tozzemon/.bashrc /home/tozzemon/.bashrcBACKUP\n"
+mv /home/tozzemon/.bashrc /home/tozzemon/.bashrcBACKUP
+
+
 # chroot
 
 echo -e "\nEXECUTION: artix-chroot /mnt\n"
