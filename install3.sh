@@ -23,8 +23,8 @@ yay -s xbanish librewolf-bin intellij-idea-community-edition-jre
 
 # Recover user's .bashrc
 
-echo -e "\nEXECUTION: rm /home/tozzemon/.bashrc && mv /home/tozzemon/.bashrcBACKUP /home/tozzemon/.bashrc\n"
-rm /home/tozzemon/.bashrc && mv /home/tozzemon/.bashrcBACKUP /home/tozzemon/.bashrc
+echo -e "\nEXECUTION: rm /home/tozzemon/.bash_profile\n"
+rm /home/tozzemon/.bash_profile
 
 # Reboot 
 
