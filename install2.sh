@@ -69,7 +69,6 @@ mkdir -p /etc/X11 && cp /root/configs/xorg.conf /etc/X11/
 echo -e "\nEXECUTION: rm /root/.bashrc && rm -rf /root/configs && rm -rf /root/dots\n"
 rm /root/.bashrc && rm -rf /root/configs && rm -rf /root/dots
 
-
 # Exit installed system
 
 echo -e "\nEXECUTION: exit\n"

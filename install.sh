@@ -76,9 +76,8 @@ cat ./install3.sh > /mnt/home/tozzemon/.bashrc
 
 # Temporary rename user's .bashrc in the installed system
 
-echo -e "\nmv /home/tozzemon/.bashrc /home/tozzemon/.bashrcBACKUP\n"
-mv /home/tozzemon/.bashrc /home/tozzemon/.bashrcBACKUP
-
+echo -e "\nmv /mnt/home/tozzemon/.bashrc /mnt/home/tozzemon/.bashrcBACKUP\n"
+mv /mnt/home/tozzemon/.bashrc /mnt/home/tozzemon/.bashrcBACKUP
 
 # chroot
 
