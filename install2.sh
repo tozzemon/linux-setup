@@ -42,7 +42,7 @@ useradd -m -G wheel -s /bin/bash tozzemon
 echo -e "\nEXECUTION: echo \"tozzemon:2486\" | chpasswd\n"
 echo "tozzemon:2486" | chpasswd
 
-echo -e "\necho '%wheel ALL=(ALL:ALL) ALL' >> /etc/sudoers\n"
+echo -e "\nEXECUTION: echo '%wheel ALL=(ALL:ALL) ALL' >> /etc/sudoers\n"
 echo "%wheel ALL=(ALL:ALL) ALL" >> /etc/sudoers
 
 # Copy dots and configs to /home/tozzemon

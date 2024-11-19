@@ -18,7 +18,7 @@ sudo ln -s /etc/dinit.d/ly /etc/dinit.d/boot.d/ly && sudo dinitctl enable ly # M
 echo "cd /opt"
 cd /opt
 echo "git clone https://aur.archlinux.org/yay.git"
-git clone https://aur.archlinux.org/yay.git
+sudo git clone https://aur.archlinux.org/yay.git
 echo "sudo chown -R \$(whoami):\$(whoami) yay"
 sudo chown -R \$(whoami):\$(whoami) yay 
 echo "cd yay"
