@@ -8,18 +8,18 @@ echo -e "\nSUDO REQUEST\n" && sudo -v && echo -e "\nPROCEEDING...\n"
 echo -e "\nEXECUTION: dinitctl enable connmand\n"
 sudo dinitctl enable connmand
 
-echo -e "\nEXECUTION: dinitctl enable ly\n"
-sudo dinitctl enable ly
+echo -e "\nEXECUTION: ln -s /etc/dinit.d/ly /etc/dinit.d/boot.d/ly && sudo dinitctl enable ly\n"
+ln -s /etc/dinit.d/ly /etc/dinit.d/boot.d/ly && sudo dinitctl enable ly # Maybe `connman` needs the same approach as `dinitctl`
 
 # Install yay
 
-echo -e "\nEXECUTION: cd /opt && git clone https://aur.archlinux.org/yay.git && chown -R \$(whoami):\$(whoami) yay && cd yay && makepkg -si\n"
+echo -e "\nEXECUTION: cd /opt && sudo git clone https://aur.archlinux.org/yay.git && sudo chown -R \$(whoami):\$(whoami) yay && cd yay && makepkg -si\n"
 cd /opt && git clone https://aur.archlinux.org/yay.git && chown -R $(whoami):$(whoami) yay && cd yay && makepkg -si
 
 # Install soft from AUR
 
-echo -e "\nEXECUTION: yay -s xbanish librewolf-bin intellij-idea-community-edition-jre\n"
-yay -s xbanish librewolf-bin intellij-idea-community-edition-jre
+echo -e "\nEXECUTION: yay -S xbanish librewolf-bin intellij-idea-community-edition-jre\n"
+yay -S xbanish librewolf-bin intellij-idea-community-edition-jre
 
 # Recover user's .bashrc
 

@@ -69,7 +69,7 @@ cp -r ./dots /mnt/root && cp -r ./configs /mnt/root
 echo -e "\nEXECUTION: mkdir -p /mnt/home/tozzemon && cat ./install3.sh > /mnt/home/tozzemon/.bash_profile\n"
 mkdir -p /mnt/home/tozzemon && cat ./install3.sh > /mnt/home/tozzemon/.bash_profile
 
-# chroot
+# Chroot
 
 echo -e "\nEXECUTION: artix-chroot /mnt\n"
 artix-chroot /mnt
