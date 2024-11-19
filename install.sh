@@ -1,27 +1,27 @@
 #! /bin/bash
 # Live-CD
 
-ROOT_PATH=""
-BOOT_PATH=""
-SWAP_PATH=""
-TIMEZONE=""
-LOCALE=""
-ROOT_PASS=""
-USERNAME=""
-USER_PASS=""
-
-read -n 1 -p "'Enter' to proceed with defaults\n[C]onfigure installation\n[U]pdate\n[Q]uit"
-if [[ "$INPUT" == "" ]]; then
-	default-installation
-elif [[ "$INPUT" == "C" || "$INPUT" == "c" ]]; then
-	configure-installation
-elif [[ "$INPUT" == "U" || "$INPUT" == "u" ]]; then
-	update
-elif [[ "$INPUT" == "Q" || "$INPUT" == "q" ]]; then
-	quit
-else
-	echo -e "\n! No such option\n"
-fi
+# ROOT_PATH=""
+# BOOT_PATH=""
+# SWAP_PATH=""
+# TIMEZONE=""
+# LOCALE=""
+# ROOT_PASS=""
+# USERNAME=""
+# USER_PASS=""
+# 
+# read -n 1 -p "'Enter' to proceed with defaults\n[C]onfigure installation\n[U]pdate\n[Q]uit"
+# if [[ "$INPUT" == "" ]]; then
+# 	default-installation
+# elif [[ "$INPUT" == "C" || "$INPUT" == "c" ]]; then
+# 	configure-installation
+# elif [[ "$INPUT" == "U" || "$INPUT" == "u" ]]; then
+# 	update
+# elif [[ "$INPUT" == "Q" || "$INPUT" == "q" ]]; then
+# 	quit
+# else
+# 	echo -e "\n! No such option\n"
+# fi
 
 echo && read -n 1 -p "One key away from the miracle... " && echo
 
