@@ -8,13 +8,23 @@ echo -e "\nSUDO REQUEST\n" && sudo -v && echo -e "\nPROCEEDING...\n"
 echo -e "\nEXECUTION: dinitctl enable connmand\n"
 sudo dinitctl enable connmand
 
-echo -e "\nEXECUTION: ln -s /etc/dinit.d/ly /etc/dinit.d/boot.d/ly && sudo dinitctl enable ly\n"
-ln -s /etc/dinit.d/ly /etc/dinit.d/boot.d/ly && sudo dinitctl enable ly # Maybe `connman` needs the same approach as `dinitctl`
+echo -e "\nEXECUTION: sudo ln -s /etc/dinit.d/ly /etc/dinit.d/boot.d/ly && sudo dinitctl enable ly\n"
+sudo ln -s /etc/dinit.d/ly /etc/dinit.d/boot.d/ly && sudo dinitctl enable ly # Maybe `connman` needs the same approach as `dinitctl`
 
 # Install yay
 
-echo -e "\nEXECUTION: cd /opt && sudo git clone https://aur.archlinux.org/yay.git && sudo chown -R \$(whoami):\$(whoami) yay && cd yay && makepkg -si\n"
-cd /opt && git clone https://aur.archlinux.org/yay.git && chown -R $(whoami):$(whoami) yay && cd yay && makepkg -si
+# echo -e "\nEXECUTION: cd /opt && sudo git clone https://aur.archlinux.org/yay.git && sudo chown -R \$(whoami):\$(whoami) yay && cd yay && makepkg -si\n"
+# cd /opt && git clone https://aur.archlinux.org/yay.git && chown -R $(whoami):$(whoami) yay && cd yay && makepkg -si
+echo "cd /opt"
+cd /opt
+echo "git clone https://aur.archlinux.org/yay.git"
+git clone https://aur.archlinux.org/yay.git
+echo "sudo chown -R \$(whoami):\$(whoami) yay"
+sudo chown -R \$(whoami):\$(whoami) yay 
+echo "cd yay"
+cd yay
+echo "makepkg -si"
+makepkg -si
 
 # Install soft from AUR
 
