@@ -3,64 +3,150 @@
 prfx="[Script]"
 command_number=1
 stage_number=1
-cmd=""
 standalone_installation=false
-configure_installation=false
 
-# Flags:
+# Flags
 
 # `confirm` (type: bool, default: false) - toggles confirmation message before each command execution.
 # `delay` (type: bool, default: false) - adds one second delay after each command.
 
-greeter() {
+# Greeter
+
+grtr() {
 	echo -e "\nArtix (Dinit) Dummy Installation Script by tozzemon\n"
-	echo -e "[S]tandalone installation (starts immidiately)\n[C]onfigure installation (adjust before start)\n[U]pdate (tries to suck an update from GitHub)\n[Q]uit"
+	echo -e " [S]tart immediately\n [P]ackage managment\n [U]pdate the script\n [Q]uit\n"
+	
 	while [ true ]; do
+
 		local input=""
-		echo && read -n 1 -p "$prfx >>> " input && echo
+		read -n 1 -p ">>> " input
+		
 		case "$input" in
-			[Ss]) standalone_installation ;;
-			[Cc]) configure_installation ;;
-			[Uu]) updateScript ;;
+
+			[Ss]) scenario ;;
+			[Pp]) packageManager ;;
+			[Uu]) update ;;
 			[Qq]) exit ;;
-			*) echo -e "\n$prfx ! There's no such option..." ;;
+			*) echo -e "\n ! There's no such option..." ;;
+
 		esac
+
 	done
 }
 
-xcute() {
-	local input=""
+# Commands executor
+
+x() {
 	local pass=false
-        echo -e "\n$prfx Stage: $stage_number Step: $command_number Command: $cmd\n"
+
+        echo -e "\nStage: $stage_number Step: $command_number Command: $c"
+
 	if [ "$confirm" == true ]; then
+
 		while [ "$pass" == false ]; do
-			read -n 1 -p "$prfx Proceed? [Y/n] " input && echo
+
+			read -n 1 -p "Proceed? [Y/n] " input && echo
+
 			case "$input" in
+				
 				[Yy]|"") pass=true ;;
-				[Nn]) echo "$prfx Aborted."; exit ;;
+				[Nn]) echo "Aborted."; exit ;;
 				*) continue ;;
+
 			esac
+
 		done
+
 	fi
+
 	pass=false
-	eval "$cmd"
+	eval "$c"
+	
 	if [ "$delay" == true ]; then
-		i=0
-		while [ "$i" -lt 1 ]; do
-			sleep 1
-			((i++))
-		done
+		sleep 1
 	fi
+
 	((counter++))
 }
 
-greeter
+packageManager() {
+	local input=""
 
-# Scenario:
+	echo -e "\n\nWhat to do with basestrap?\n"
+	echo -e " [F]ull redefine\n [M]inimal set (just to put the system to work)\n [K]ernel (redefine the kernel only)\n [B]ack (leave it as it is)\n"
 
-cmd="echo 'A text provided by echo command!'" && xcute
-cmd="mkdir test111 && ls && rm rest111" && xcute
-cmd="echo -e 'And another one text'" && xcute
+	while [ true ]; do
+
+		read -n 1 -p ">>> " input && echo
+
+		case "$input" in
+
+			[Ff]) basestrapRedefine ;;
+			[Mm]) basestrapMinimal ;;
+			[Kk]) basestrapKernel ;;
+			[Bb]) grtr;;
+
+		esac
+
+	done
+}
+
+scenario() {
+	# Paths
+	
+	local boot_path="/dev/sda1"
+	local swap_path="/dev/sda2"
+	local root_path="/dev/sda3"
+	local boot_dir="/mnt/boot"
+
+	# Setting partitions
+	
+	c="mkfs.btrfs -fq $root_path" && x
+	
+	c="mount $root_path /mnt" && x
+	c="btrfs subvolume create /mnt/@" && x
+	c="btrfs subvolume create /mnt/@snapshots" && x
+	c="umount /mnt" && x
+	c="mount -o subvol=@ $root_path /mnt" && x
+	c="mkfs.ext4 -Fq $swap_path" && x
+	c="mkfs.vfat $boot_path" && x
+	c="mount --mkdir $boot_path $boot_dir" && x
+	
+	# Configuring network
+	
+	c="dinitctl start ntpd" && x
+	
+	# Updating package database
+	
+	c="pacman -Sy --noconfirm" && x
+	
+	# Installing packages
+	
+	c="basestrap /mnt linux linux-firmware base base-devel dinit elogind-dinit os-prober efibootmgr connman-dinit xorg xorg-xinit ly-dinit git alacritty bash-completion beep breeze-gtk breeze5 bspwm btrfs-progs dunst grub gvim lxappearance neofetch neovim ntfs-3g openssh qt5ct rofi sxhkd unclutter viewnior vifm wget xorg xorg-xinit" && x
+	
+	# Generating Fstab
+	
+	c="fstabgen -U /mnt >> /mnt/etc/fstab" && x
+	
+	# Creating a directory for configuration files
+	
+	c="mkdir -p /mnt/configurations" && x
+	
+	# Copying configurations
+	
+	c="cp -r ./config /mnt/configurations && cp -r ./xorg /mnt/configurations && cp -r ./sddm-theme /mnt/configurations" && x
+
+}
+
+grtr
+
+
+
+
+
+
+
+
 
 # SDDM
 
