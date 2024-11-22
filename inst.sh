@@ -4,6 +4,9 @@ prfx="[Script]"
 command_number=1
 stage_number=1
 standalone_installation=false
+basestrap_packages="linux-firmware base base-devel dinit elogind-dinit os-prober efibootmgr connman-dinit ly-dinit git alacritty bash-completion beep breeze-gtk breeze5 bspwm btrfs-progs dunst grub gvim lxappearance neofetch neovim ntfs-3g openssh qt5ct rofi sxhkd unclutter viewnior vifm wget xorg xorg-xinit"
+basestrap_minimal="linux-firmware base dinit elogind-dinit os-prober efibootmgr connman-dinit xorg xorg-xinit bash-completion grub gvim neofetch neovim ntfs-3g openssh wget"
+basestrap_kernel="linux"
 
 # Flags
 
@@ -13,18 +16,18 @@ standalone_installation=false
 # Greeter
 
 grtr() {
+	local input=""
 	echo -e "\nArtix (Dinit) Dummy Installation Script by tozzemon\n"
-	echo -e " [S]tart immediately\n [P]ackage managment\n [U]pdate the script\n [Q]uit\n"
+	echo -e " [S]tart immediately\n [B]asestrap adjustment\n [U]pdate the script\n [Q]uit\n"
 	
 	while [ true ]; do
 
-		local input=""
 		read -n 1 -p ">>> " input
 		
 		case "$input" in
 
 			[Ss]) scenario ;;
-			[Pp]) packageManager ;;
+			[Bb]) basestrapManager ;;
 			[Uu]) update ;;
 			[Qq]) exit ;;
 			*) echo -e "\n ! There's no such option..." ;;
@@ -37,6 +40,7 @@ grtr() {
 # Commands executor
 
 x() {
+	local input=""
 	local pass=false
 
         echo -e "\nStage: $stage_number Step: $command_number Command: $c"
@@ -69,25 +73,42 @@ x() {
 	((counter++))
 }
 
-packageManager() {
+basestrapManager() {
 	local input=""
 
-	echo -e "\n\nWhat to do with basestrap?\n"
-	echo -e " [F]ull redefine\n [M]inimal set (just to put the system to work)\n [K]ernel (redefine the kernel only)\n [B]ack (leave it as it is)\n"
-
 	while [ true ]; do
-
+		echo -e "What to do with basestrap?\n"
+		echo -e " [F]ull redefine\n [K]ernel redefine\n [M]inimal system set\n [S]how current set\n [B]ack\n"
 		read -n 1 -p ">>> " input && echo
 
 		case "$input" in
 
-			[Ff]) basestrapRedefine ;;
-			[Mm]) basestrapMinimal ;;
-			[Kk]) basestrapKernel ;;
+			[Ff])
+				echo && read -p "Type in a new set: " basestrap_packages ;
+				echo -e "\nPackages successfully updated.\n" ;;
+			[Kk])
+				echo && read -p "Specify a new kernel: " basestrap_kernel ;
+				echo -e "\nKernel package successfully updated.\n" ;;
+			[Mm])
+				echo -e "\nThe minimal package set is:\n$basestrap_minimal\n" ;
+				read -n 1 -p "Apply it? [Y/n] " input && echo ;
+
+				case "$input" in
+					
+					[Yy]|"")
+						basestrap_packages="$basestrap_minimal" ;
+						echo -e "\nApplied.\n" ;
+						basestrapManager ;;
+					[Nn])
+						echo -e "\nCanceled.\n";
+						basestrapManager ;;
+					*) continue ;;
+
+				esac ;;
+
+			[Ss]) echo -e "\nKernel:\n$basestrap_kernel\n\nPackages:\n$basestrap_packages\n" ;;
 			[Bb]) grtr;;
-
 		esac
-
 	done
 }
 
@@ -122,7 +143,7 @@ scenario() {
 	
 	# Installing packages
 	
-	c="basestrap /mnt linux linux-firmware base base-devel dinit elogind-dinit os-prober efibootmgr connman-dinit xorg xorg-xinit ly-dinit git alacritty bash-completion beep breeze-gtk breeze5 bspwm btrfs-progs dunst grub gvim lxappearance neofetch neovim ntfs-3g openssh qt5ct rofi sxhkd unclutter viewnior vifm wget xorg xorg-xinit" && x
+	c="basestrap /mnt $basestrap_kernel $basestrap_packages" && x
 	
 	# Generating Fstab
 	
