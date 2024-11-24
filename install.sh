@@ -195,11 +195,12 @@ update() {
 		case "$input" in
 			
 			[Yy])
-				echo -e "\nI wish to have the same courage as yours...\n" 
+				echo -e "\nI wish to have the same courage as yours...\n" ;
 				local dir=$(basename $PWD) ;
 				cd .. && rm -rf ./$(dir) ;
 				git clone https://github.com/tozzemon/linux-setup.git ;
-				echo -e "\nRelaunching the script..." ;
+				echo -e "\nRelaunching the script...\n" ;
+				echo "$(ls && pwd)" ;
 				exec ./install.sh ;;
 
 		 		# rm -rf ../$(basename $PWD) ;
