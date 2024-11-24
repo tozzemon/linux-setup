@@ -196,12 +196,11 @@ update() {
 			
 			[Yy])
 				echo -e "\nI wish to have the same courage as yours...\n" ;
-				local script_dir=$(basename $PWD) ;
-				local script_full_path=$(pwd) ;
-				cd .. && rm -rf $script_full_path ;
+				local script_path=$(pwd) ;
+				cd .. && rm -rf $script_path ;
 				git clone https://github.com/tozzemon/linux-setup.git ;
 				echo -e "\nRelaunching the script...\n" ;
-				cd $script_dir && exec $script_full_path/install.sh ;;
+				cd $script_path && exec ./install.sh ;;
 			[Nn]|"")
 				echo -e "\nCanceled.";
 				menu ;;
