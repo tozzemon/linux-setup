@@ -1,0 +1,46 @@
+The script is built for Artix Dinit installation.
+
+The Artix ISO has to be Dinit version to fit the installation process.
+1. The script supports Dinit only.
+2. 
+
+Please, before using the script make sure that:
+
+1. The Artix ISO is Dinit version.
+2. The system supports UEFI boot.
+4. 
+3. You're OK with using three paritions for the system (Boot, Swap, Root).
+
+Otherwise, rewrite the script for your needs.
+
+By default, the script does:
+
+The script installs the Dinit version of Artix. It supposes that the hardware supports UEFI and x64 architecture. It uses three partitions: Boot, Swap, and Root. 
+
+1. It's built for Dinit version installation of Artix;
+2. It supposes the hardware's support of UEFI and x64 architecture;
+3. It supposes the system's consistance of three partitions: Boot, Swap, and Root;
+4. It formats Boot to FAT32, Swap to EXT4, and Root partition to BTRFS;
+5. It creates and uses BTRFS subvolumes `/@` and `/@snapshots`;
+4. It installs NVIDIA (Turing, NV160/TUXXX) open source drivers;
+5. Installs
+
+
+It installs Dinit version of Artix. It's supposed that the hardware supports UEFI and x64 architecture. Initially, it's built to work with three partitions: Boot (formats to FAT32), Swap (to EXT4), and Root (BTRFS). It's also able to create `/@` and `/@snapshots` subvolumes and take a snapshot right after the installation by choice. 
+
+There are features that might be configured with the script's interface: partitions paths, BTRFS usage, packages to install,  
+
+but if you want more, feel free to overwrite it for your specific needs.
+
+The script installs Dinit version of Artix for x64-bit systems with UEFI support. Initially, it's forced to work with three partitions: Boot, Swap, Root (paths can be specified). And formats them to FAT32, EXT4, and BTRFS accordingly. Along with this, it creates subvolumes `/@` for Root and `/@snapshots` for the further snapshots storing. After the installation, it can automatically take a snapshot of the fresh system.
+
+
+
+
+It supposes the following conditions:
+
+1. Artix Dinit version.
+2. A motherboard with UEFI support.
+3. The target drive's partitioning: Boot, Swap, Root.
+
+
