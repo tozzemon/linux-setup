@@ -202,7 +202,7 @@ update() {
 				git clone https://github.com/tozzemon/linux-setup.git ;
 				echo -e "\nRelaunching the script...\n" ;
 				echo "$(ls && pwd)" ;
-				cd $(script_dir) && exec $(script_full_path)/install.sh ;;
+				cd $script_dir && exec $script_full_path/install.sh ;;
 
 		 		# rm -rf ../$(basename $PWD) ;
 				# git clone https://github.com/tozzemon/linux-setup.git ;
