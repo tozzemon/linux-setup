@@ -198,11 +198,11 @@ update() {
 				echo -e "\nI wish to have the same courage as yours...\n" ;
 				local script_dir=$(basename $PWD) ;
 				local script_full_path=$(pwd) ;
-				cd .. && rm -rf ./$(script_dir) ;
+				cd .. && rm -rf $(script_full_path) ;
 				git clone https://github.com/tozzemon/linux-setup.git ;
 				echo -e "\nRelaunching the script...\n" ;
 				echo "$(ls && pwd)" ;
-				exec $(script_full_path)/install.sh ;;
+				cd $(script_dir) && exec $(script_full_path)/install.sh ;;
 
 		 		# rm -rf ../$(basename $PWD) ;
 				# git clone https://github.com/tozzemon/linux-setup.git ;
