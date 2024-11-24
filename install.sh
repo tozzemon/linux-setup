@@ -188,18 +188,18 @@ basestrapManager() {
 update() {
 	local input=""
 
-	echo && read -n 1 -p "It might overwrite your custom setting. Proceed? [Y/n] " input && echo
+	echo && read -n 1 -p "It might overwrite your custom setting. Proceed? [y/N] " input && echo
 
 	while [ true ]; do
 
 		case "$input" in
 			
-			[Yy]|"")
-		 		rm -rf ../$(basename $PWD)
-				git clone https://github.com/tozzemon/linux-setup.git
-				echo -e "\nRelaunching the script..."
+			[Yy])
+		 		rm -rf ../$(basename $PWD) ;
+				git clone https://github.com/tozzemon/linux-setup.git ;
+				echo -e "\nRelaunching the script..." ;
 				exec ./install.sh ;;
-			[Nn])
+			[Nn]|"")
 				echo -e "\nCanceled.";
 				menu ;;
 			*) continue ;;
