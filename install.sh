@@ -186,7 +186,27 @@ basestrapManager() {
 # The script's updator, tries to suck up a new version from Github
 
 update() {
-	echo && git pull && echo -e "\nRelaunching the script..." && exec ./install.sh 
+	local input=""
+
+	echo && read -n 1 -p "It might overwrite your custom setting. Proceed? [Y/n] " input && echo
+
+	while [ true ]; do
+
+		case "$input" in
+			
+			[Yy]|"")
+		 		rm -rf ../$(basename $PWD)
+				git clone https://github.com/tozzemon/linux-setup.git
+				echo -e "\nRelaunching the script..."
+				exec ./install.sh ;;
+			[Nn])
+				echo -e "\nCanceled.";
+				menu ;;
+			*) continue ;;
+
+		esac ;;
+
+	done
 }
 
 # Installation scenario
