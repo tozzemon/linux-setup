@@ -186,7 +186,7 @@ basestrapManager() {
 # The script's updator, tries to suck up a new version from Github
 
 update() {
-	git pull && echo - "\nRelaunching the script...\n" && exec ./script.sh
+	echo && git pull && echo -e "\nRelaunching the script..." && exec ./install.sh
 }
 
 # Installation scenario
