@@ -204,7 +204,7 @@ update() {
 				menu ;;
 			*) continue ;;
 
-		esac ;;
+		esac 
 
 	done
 }
