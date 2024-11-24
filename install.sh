@@ -195,10 +195,17 @@ update() {
 		case "$input" in
 			
 			[Yy])
-		 		rm -rf ../$(basename $PWD) ;
+				echo -e "\nI wish to have the same courage as yours...\n" 
+				local dir=$(basename $PWD) ;
+				cd .. && rm -rf ./$(dir) ;
 				git clone https://github.com/tozzemon/linux-setup.git ;
 				echo -e "\nRelaunching the script..." ;
 				exec ./install.sh ;;
+
+		 		# rm -rf ../$(basename $PWD) ;
+				# git clone https://github.com/tozzemon/linux-setup.git ;
+				# echo -e "\nRelaunching the script..." ;
+				# exec ./install.sh ;;
 			[Nn]|"")
 				echo -e "\nCanceled.";
 				menu ;;
