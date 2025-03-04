@@ -1,0 +1,29 @@
+[2025-01-20 04:32:13.196] [info] Using configuration file /home/tozzemon/.config/waybar/config.jsonc
+[2025-01-20 04:32:13.199] [info] Unable to receive desktop appearance: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such interface “org.freedesktop.portal.Settings” on object at path /org/freedesktop/portal/desktop
+[2025-01-20 04:32:13.199] [info] Using CSS file /home/tozzemon/.config/waybar/style.css
+[2025-01-20 04:32:13.205] [warning] Mapping is not an object
+[2025-01-20 04:32:13.213] [warning] module mpd: Unknown module: mpd
+[2025-01-20 04:32:13.213] [error] media stopped unexpectedly, is it endless?
+[2025-01-20 04:32:13.213] [warning] module pulseaudio: Unknown module: pulseaudio
+[2025-01-20 04:32:13.213] [warning] module network: Unknown module: network
+[2025-01-20 04:32:13.217] [warning] module keyboard-state: Unknown module: keyboard-state
+[2025-01-20 04:32:13.232] [warning] No battery named BAT2
+[2025-01-20 04:32:13.232] [warning] module tray: Unknown module: tray
+[2025-01-20 04:32:13.232] [warning] Error while creating the menu : Failed to expand file: $HOME/.config/waybar/power_menu.xml. Menu popup not activated.
+[2025-01-20 04:32:13.440] [error] Failed to query power-profiles-daemon via dbus: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name net.hadess.PowerProfiles was not provided by any .service files
+[2025-01-20 04:32:13.448] [info] Bar configured (width: 1920, height: 30) for output: eDP-1
+[2025-01-20 04:32:19.523] [info] Quitting.
+[2025-01-20 04:32:36.323] [info] Using configuration file /home/tozzemon/.config/waybar/config.jsonc
+[2025-01-20 04:32:36.324] [info] Unable to receive desktop appearance: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such interface “org.freedesktop.portal.Settings” on object at path /org/freedesktop/portal/desktop
+[2025-01-20 04:32:36.324] [info] Using CSS file /home/tozzemon/.config/waybar/style.css
+[2025-01-20 04:32:36.328] [warning] Mapping is not an object
+[2025-01-20 04:32:36.332] [warning] module mpd: Unknown module: mpd
+[2025-01-20 04:32:36.332] [warning] module pulseaudio: Unknown module: pulseaudio
+[2025-01-20 04:32:36.332] [warning] module network: Unknown module: network
+[2025-01-20 04:32:36.333] [error] media stopped unexpectedly, is it endless?
+[2025-01-20 04:32:36.335] [warning] module keyboard-state: Unknown module: keyboard-state
+[2025-01-20 04:32:36.343] [warning] No battery named BAT2
+[2025-01-20 04:32:36.343] [warning] module tray: Unknown module: tray
+[2025-01-20 04:32:36.343] [warning] Error while creating the menu : Failed to expand file: $HOME/.config/waybar/power_menu.xml. Menu popup not activated.
+[2025-01-20 04:32:36.552] [error] Failed to query power-profiles-daemon via dbus: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name net.hadess.PowerProfiles was not provided by any .service files
+[2025-01-20 04:32:36.555] [info] Bar configured (width: 1920, height: 30) for output: eDP-1
